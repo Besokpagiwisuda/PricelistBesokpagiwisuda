@@ -1,8 +1,8 @@
-
+<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Besokpagi.wisuda</title>
+  <title>Besokpagi Wisuda</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -19,17 +19,18 @@
     .form-box {
       max-width: 500px;
       background: #ffffff;
-      margin: 60px auto;
+      margin: 80px auto;
       padding: 25px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
     .judul {
-      font-size: 18px;
-      line-height: 1.5;
+      font-size: 16px;
+      line-height: 1.6;
       text-align: center;
       margin-bottom: 25px;
+      color: #333;
     }
 
     label {
@@ -68,10 +69,13 @@
 <body>
 
   <div class="form-box">
+
+    <!-- TEKS PRICELIST SUDAH DIHILANGKAN -->
+
     <div class="judul">
-      Hallo Kak
-Kami siap membantu mengabadikan momen spesial wisuda kakak
-mulai dari informasi paket hingga proses pemesanan.Silakan sampaikan kebutuhan atau pertanyaan kakak ya.
+      Halo kak, kami siap membantu mengabadikan momen spesial wisuda kakak,
+      mulai dari informasi paket hingga proses pemesanan.
+      Silakan sampaikan kebutuhan atau pertanyaan kakak ya.
     </div>
 
     <label>Nama</label>
@@ -97,48 +101,41 @@ mulai dari informasi paket hingga proses pemesanan.Silakan sampaikan kebutuhan a
         return;
       }
 
-      var namaBulan = [
-        "Januari", "Februari", "Maret", "April",
-        "Mei", "Juni", "Juli", "Agustus",
-        "September", "Oktober", "November", "Desember"
+      var bulan = [
+        "Januari","Februari","Maret","April","Mei","Juni",
+        "Juli","Agustus","September","Oktober","November","Desember"
       ];
 
       var hariList = [
-        "Minggu", "Senin", "Selasa",
-        "Rabu", "Kamis", "Jumat", "Sabtu"
+        "Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"
       ];
 
       var dateObj = new Date(tanggal);
       var hari = hariList[dateObj.getDay()];
-
       var tgl = tanggal.split("-");
+
       var tanggalFix =
-        hari + ", " +
-        tgl[2] + " " +
-        namaBulan[parseInt(tgl[1]) - 1] + " " +
-        tgl[0];
+        hari + ", " + tgl[2] + " " + bulan[parseInt(tgl[1]) - 1] + " " + tgl[0];
 
       var nomorWA = "6285700042538";
 
       var pesan =
         "Halo Kak\n\n" +
-        "Saya ingin menanyakan pricelist di Besokpagi.wisuda, Sebelumnya perkenalkan saya\n\n" +
-        "Nama        : " + nama + "\n" +
-        "Kampus      : " + kampus + "\n" +
-        "Tgl Wisuda  : " + tanggalFix + "\n\n" +
+        "Saya ingin menanyakan pricelist di Besokpagi Wisuda.\n\n" +
+        "Nama       : " + nama + "\n" +
+        "Kampus     : " + kampus + "\n" +
+        "Tgl Wisuda : " + tanggalFix + "\n\n" +
         "Terima kasih, Kak";
 
-      var urlWA =
+      var url =
         "https://api.whatsapp.com/send?phone=" +
         nomorWA +
         "&text=" +
         encodeURIComponent(pesan);
 
-      window.open(urlWA, "_blank");
+      window.open(url, "_blank");
     }
   </script>
 
 </body>
 </html>
-
-
